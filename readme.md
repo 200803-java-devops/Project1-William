@@ -2,6 +2,7 @@
 The end-goal for this project will be an application accessible via server that will be able to access our Project0s on Github, download and run them, and automatically log communication data between the client and server.  I reserve the right to change the scope and direction of this project in order to make it more robust or larger in scope.
 
 <h1>User Stories<h1>
+
 <ul>
   <li>The user will be able to access projects and select one to run</li>
 
