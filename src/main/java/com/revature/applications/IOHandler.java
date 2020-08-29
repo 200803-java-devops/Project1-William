@@ -6,8 +6,10 @@ public class IOHandler {
        //System.out.println("Please type the path to your project's root folder");
        //take in input to get the folder path dynamically
         
-       String path = "C:\\Users\\a\\Desktop\\Revature\\bootcamp projects\\Project0";
+       String path = "C:\\Users\\a\\Desktop\\Revature\\bootcamp projects\\Project0\\Logs";
        path = path.replace("\\", "/");
        return path;
    }
+
+   
 }
