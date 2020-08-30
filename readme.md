@@ -14,7 +14,7 @@
 - [ ] Amazon Web Services
 - [x] Git SCM
 </br>
-## Features
+<h1>Features</h1>
 - [x] Ability to pass user input to a servlet.
 - [x] Using user input, application will scan for log files and return all instances of the keyword, utilizing regular expressions.
 - [ ] Ability to view all log files within the path.
