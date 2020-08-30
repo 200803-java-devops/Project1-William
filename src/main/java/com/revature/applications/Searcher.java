@@ -28,29 +28,34 @@ public class Searcher {
         
             //now need to use filereader to read each one.  Will need some kind of variables set to catch keywords
             try (BufferedReader br = new BufferedReader(new FileReader(file));) {
-            String line = null;
-            int linecounter = 0;
-            Pattern p = Pattern.compile("\\b" + keyword + "\\b", Pattern.CASE_INSENSITIVE);
-            
-            while ((line = br.readLine()) != null) {
-                linecounter++;
-                //logic to find keyword
-                Matcher m = p.matcher(line);
-                //I believe m goes to null (false) when it doesn't find a match
-                while (m.find()){
-                    //If it found an instance, add it to this log file's line list. 
-                    //Confirm exactly what type of value that start() method is returning.
-                    LogFile log = new LogFile(file.getName());
-                    log.addLine(linecounter);
+                String line = null;
+                int linecounter = 0;
+                Pattern p = Pattern.compile("\\b" + keyword + "\\b", Pattern.CASE_INSENSITIVE);
+                LogFile log = new LogFile(file.getName());
+    
+                while ((line = br.readLine()) != null) {
+                    linecounter++;
+                    //logic to find keyword
+                    Matcher m = p.matcher(line);
+                    //I believe m goes to null (false) when it doesn't find a match
+                    while (m.find()){
+                        //If it found an instance, add it to this log file's line list. 
+                        log.addLine(linecounter);
+                        //now that you've created that file object, keep checking for more instances
+                        //Maybe create an object every time but drop it if the instance list is empty.
+    
+                    }
+                }
+                if (log.getLine().isEmpty() == true) {
+                    log.setName(null);
+                } else {
                     logs.add(log);
-
+                }
+                //At the end of reading through a log file and filling out its name and line occurances, add it with those attributes set to this list.
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            //At the end of reading through a log file and filling out its name and line occurances, add it with those attributes set to this list.
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
 
         return logs;
     }

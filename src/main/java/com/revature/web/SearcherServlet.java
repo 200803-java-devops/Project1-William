@@ -32,5 +32,6 @@ public class SearcherServlet extends HttpServlet {
                 resp.getWriter().println("- File: " + logs.get(i).getName() + " at lines: " + logs.get(i).getLine());
         }
         }
+        //resp.getWriter().println("</br> <a ")
     }
 }
