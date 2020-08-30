@@ -14,9 +14,9 @@ import com.revature.objects.LogFile;
 
 public class Searcher {
 
-    String keyword = "exception"; //case will be ignored
+     //case will be ignored
 
-    public List<LogFile> search(String path) {
+    public List<LogFile> search(String path, String keyword) {
         List<LogFile> logs = new ArrayList<LogFile>();
         
         File[] fileList = new File(path).listFiles();
@@ -27,8 +27,7 @@ public class Searcher {
             //https://stackoverflow.com/questions/14374707/what-does-the-colon-mean-in-java/14374760#:~:text=It%20means%20one%20thing%2C%20it%20is%20an%20enhanced%20for%20loop.&text=When%20you%20see%20the%20colon,each%20loop%2C%20even%20for%20arrays.
         
             //now need to use filereader to read each one.  Will need some kind of variables set to catch keywords
-            try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
+            try (BufferedReader br = new BufferedReader(new FileReader(file));) {
             String line = null;
             int linecounter = 0;
             Pattern p = Pattern.compile("\\b" + keyword + "\\b", Pattern.CASE_INSENSITIVE);
@@ -48,7 +47,6 @@ public class Searcher {
                 }
             }
             //At the end of reading through a log file and filling out its name and line occurances, add it with those attributes set to this list.
-            
             } catch (Exception e) {
                 e.printStackTrace();
             }

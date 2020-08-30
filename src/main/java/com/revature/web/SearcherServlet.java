@@ -17,16 +17,20 @@ public class SearcherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<LogFile> logs = new ArrayList<LogFile>();
-        IOHandler io = new IOHandler();
-        String path = io.getPath();
-        
+        //IOHandler io = new IOHandler();  NO NEED FOR AN IOHANDLER OBJ ANYMORE AS THE SERVLET DOES THAT.
+        String path = req.getParameter("filePath");
+        String keyword = req.getParameter("keyword");
+       
         Searcher searcher = new Searcher();
-        logs = searcher.search(path);
-        //an io method to unpackage and deliver as readable output
-        //can even just debug and see if things are holding value properly
-        resp.getWriter().println("Instances found:");
-        for(int i = 0; i < logs.size(); i++) {
-            resp.getWriter().println("File: " + logs.get(i).getName() + " at lines: " + logs.get(i).getLine());
+        logs = searcher.search(path, keyword);
+
+        if (logs.isEmpty()) {
+            resp.getWriter().println("No instances of the keyword were found for that path.");
+        } else {
+            resp.getWriter().println("Instances found:");
+            for(int i = 0; i < logs.size(); i++) {
+                resp.getWriter().println("- File: " + logs.get(i).getName() + " at lines: " + logs.get(i).getLine());
+        }
         }
     }
 }
