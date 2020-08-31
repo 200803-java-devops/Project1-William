@@ -12,9 +12,24 @@ import java.util.regex.Pattern;
 
 import com.revature.objects.LogFile;
 
-public class Searcher {
+public class Manager {
 
-     //case will be ignored
+
+     public List<LogFile> view(String path) {
+        List<LogFile> logs = new ArrayList<LogFile>();
+        
+        File[] fileList = new File(path).listFiles();
+
+        for (File file : fileList) {
+            LogFile log = new LogFile(file.getName());
+            logs.add(log);
+            }
+
+        return logs;
+    }
+
+
+
 
     public List<LogFile> search(String path, String keyword) {
         List<LogFile> logs = new ArrayList<LogFile>();

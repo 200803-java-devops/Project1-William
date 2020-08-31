@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.revature.applications.IOHandler;
-import com.revature.applications.Searcher;
+import com.revature.applications.Manager;
 import com.revature.objects.LogFile;
 
 public class SearcherServlet extends HttpServlet {
@@ -21,9 +21,11 @@ public class SearcherServlet extends HttpServlet {
         String path = req.getParameter("filePath");
         String keyword = req.getParameter("keyword");
        
-        Searcher searcher = new Searcher();
-        logs = searcher.search(path, keyword);
+        Manager manager = new Manager();
+        logs = manager.search(path, keyword);
 
+        
+        //How can I move his function to another class (and should I) when I need the response object?
         if (logs.isEmpty()) {
             resp.getWriter().println("No instances of the keyword were found for that path.");
         } else {
