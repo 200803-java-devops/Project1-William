@@ -27,7 +27,7 @@ public class SearcherServlet extends HttpServlet {
         
         //How can I move his function to another class (and should I) when I need the response object?
         if (logs.isEmpty()) {
-            resp.getWriter().println("No instances of the keyword were found for that path.");
+            resp.getWriter().println("No instances of the keyword were found for that path.  Please double check your path provided.");
         } else {
             resp.getWriter().println("Instances found:");
             for(int i = 0; i < logs.size(); i++) {

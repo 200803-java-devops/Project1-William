@@ -23,5 +23,7 @@ This application will be a log file manager for the batch's project 0s.  Some re
 
 ## User Stories
 -The user will be able to search through all log files for keywords and shown which files contain that keyword and where.
+
 -The user will be able to view log files in whole from the application.
+
 -The user will be able to upload log file information to a SQL database.
