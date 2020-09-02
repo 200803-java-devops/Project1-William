@@ -17,18 +17,29 @@ public class ViewerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<LogFile> logs = new ArrayList<LogFile>();
         Manager manager = new Manager();
-        String path = req.getParameter("filePath"); //this is gonna have to be reviewed, the whole UI bit
+        String path = req.getParameter("filePath");
         logs = manager.view(path);
+        
 
-        if (logs.isEmpty()) {
-            resp.getWriter().println("No log files found for that path.");
-        } else {
-            resp.getWriter().println("Files found:");
-            for(int i = 0; i < logs.size(); i++) {
-                resp.getWriter().println(logs.get(i).getName());
-        }
-        }
+        req.setAttribute("list", list(logs));
+        req.setAttribute("path", path);
+
+        req.getRequestDispatcher("view.jsp").forward(req, resp);
+
+
 
     }
+    private String list(List<LogFile> logs) {
+        String string = "";
+        if (logs.isEmpty()) {
+            string = "No files were found in that path.";
+        } else {
+            for(int i = 0; i < logs.size(); i++) {
+                string += (logs.get(i).getName() + "\n");
+        }
+        }
+        return string;
+    }
+
 
 }

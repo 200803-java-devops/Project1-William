@@ -16,6 +16,7 @@ import com.revature.objects.LogFile;
 public class SearcherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
         List<LogFile> logs = new ArrayList<LogFile>();
         //IOHandler io = new IOHandler();  NO NEED FOR AN IOHANDLER OBJ ANYMORE AS THE SERVLET DOES THAT.
         String path = req.getParameter("filePath");
@@ -24,8 +25,17 @@ public class SearcherServlet extends HttpServlet {
         Manager manager = new Manager();
         logs = manager.search(path, keyword);
 
-        
-        //How can I move his function to another class (and should I) when I need the response object?
+
+        req.setAttribute("list", list(logs));
+
+
+
+       
+        req.getRequestDispatcher("search.jsp").forward(req, resp);
+        //resp.getWriter().println("</br> <a ")
+
+
+        /*
         if (logs.isEmpty()) {
             resp.getWriter().println("No instances of the keyword were found for that path.  Please double check your path provided.");
         } else {
@@ -33,7 +43,19 @@ public class SearcherServlet extends HttpServlet {
             for(int i = 0; i < logs.size(); i++) {
                 resp.getWriter().println("- File: " + logs.get(i).getName() + " at lines: " + logs.get(i).getLine());
         }
-        }
-        //resp.getWriter().println("</br> <a ")
+        */
     }
+    private String list(List<LogFile> logs) {
+        String string = "";
+        if (logs.isEmpty()) {
+           string = "No instances of the keyword were found for that path.  Please double check your path provided.";
+        } else {
+            //String button = 
+            for(int i = 0; i < logs.size(); i++) {
+                string += "<div>-File: " + "<span>" + logs.get(i).getName() + "</span> at lines: " + logs.get(i).getLine() + " " + "<form style=\"display:inline-block;\" action=\"/Project1/submit\" method=\"POST\"><input type=\"hidden\" name=\"comments\" id=\"comments\" value=\"\" /> <input type=\"hidden\" name=\"file\" id=\"file\" value=" + logs.get(i).getPath() + "/> <input type = \"submit\" value = \"Report to Developers\" onClick=\"return empty3()\" /> </form></div>";
+        }
+        }
+        return string;
+    }
+
 }

@@ -10,11 +10,37 @@ import java.util.Objects;
 public class LogFile {
     String name;
     List<Integer> line = new ArrayList<Integer>();
+    String path;
 
 
     public LogFile(String name) {
         this.name = name;
-	}
+    }
+    
+    public LogFile(String name, String path) {
+        this.name = name;
+        this.path = path;
+    }
+
+
+    public LogFile(String name, List<Integer> line, String path) {
+        this.name = name;
+        this.line = line;
+        this.path = path;
+    }
+
+    public String getPath() {
+        return this.path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public LogFile path(String path) {
+        this.path = path;
+        return this;
+    }
 
 
     public void addLine(int number) {

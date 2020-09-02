@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -28,6 +31,14 @@ public class Manager {
         return logs;
     }
 
+    //confirm this works, create a servlet and test it out
+    public String viewFile(String path, Charset encoding) throws IOException {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        
+        return new String(encoded, encoding);
+    
+    }
+
 
 
 
@@ -46,7 +57,7 @@ public class Manager {
                 String line = null;
                 int linecounter = 0;
                 Pattern p = Pattern.compile("\\b" + keyword + "\\b", Pattern.CASE_INSENSITIVE);
-                LogFile log = new LogFile(file.getName());
+                LogFile log = new LogFile(file.getName(), file.getPath());
     
                 while ((line = br.readLine()) != null) {
                     linecounter++;
