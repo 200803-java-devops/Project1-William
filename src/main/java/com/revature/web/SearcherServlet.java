@@ -9,16 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.revature.applications.IOHandler;
 import com.revature.applications.Manager;
 import com.revature.objects.LogFile;
 
 public class SearcherServlet extends HttpServlet {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         List<LogFile> logs = new ArrayList<LogFile>();
-        //IOHandler io = new IOHandler();  NO NEED FOR AN IOHANDLER OBJ ANYMORE AS THE SERVLET DOES THAT.
         String path = req.getParameter("filePath");
         String keyword = req.getParameter("keyword");
        
@@ -52,7 +55,7 @@ public class SearcherServlet extends HttpServlet {
         } else {
             //String button = 
             for(int i = 0; i < logs.size(); i++) {
-                string += "<div>-File: " + "<span>" + logs.get(i).getName() + "</span> at lines: " + logs.get(i).getLine() + " " + "<form style=\"display:inline-block;\" action=\"/Project1/submit\" method=\"POST\"><input type=\"hidden\" name=\"comments\" id=\"comments\" value=\"\" /> <input type=\"hidden\" name=\"file\" id=\"file\" value=" + logs.get(i).getPath() + "/> <input type = \"submit\" value = \"Report to Developers\" onClick=\"return empty3()\" /> </form></div>";
+                string += "<div>-File: " + "<span>" + logs.get(i).getName() + "</span> at lines: " + logs.get(i).getLine() + " " + "<form style=\"display:inline-block;\" action=\"/Project1/submit\" method=\"POST\"><input type=\"hidden\" name=\"comments\" id=\"comments\" value=\"\" /> <input type=\"hidden\" name=\"file\" id=\"file\" value=\"" + logs.get(i).getPath() + "\"/> <input type=\"hidden\" name=\"name\" id=\"name\" value=\"" + logs.get(i).getName() + "\"/> <input type = \"submit\" id=\"button\" value = \"Report to Developers\" onClick=\"return empty3()\" /> </form></div>";
         }
         }
         return string;

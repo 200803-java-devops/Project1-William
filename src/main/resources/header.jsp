@@ -52,10 +52,9 @@
 		{
             if (window.confirm("Are you sure you want to submit this log file to the developers?"))
             {
-                var x;
-                x = window.prompt("Please add comments about this log file submission.");
-                document.getElementById('comments').value = x;
-                console.log("x= " + x);
+                var x = window.prompt("Please add comments about this log file submission.");
+                document.getElementById("comments").value = x;
+                
             } else {
                 return false;
             }

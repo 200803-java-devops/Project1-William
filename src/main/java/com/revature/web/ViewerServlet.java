@@ -13,6 +13,11 @@ import com.revature.applications.Manager;
 import com.revature.objects.LogFile;
 
 public class ViewerServlet extends HttpServlet {
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<LogFile> logs = new ArrayList<LogFile>();
@@ -26,16 +31,14 @@ public class ViewerServlet extends HttpServlet {
 
         req.getRequestDispatcher("view.jsp").forward(req, resp);
 
-
-
     }
     private String list(List<LogFile> logs) {
         String string = "";
         if (logs.isEmpty()) {
-            string = "No files were found in that path.";
+            string = "<p>No files were found in that path.</p>";
         } else {
             for(int i = 0; i < logs.size(); i++) {
-                string += (logs.get(i).getName() + "\n");
+                string += "<div>" + logs.get(i).getName() + "<form style=\"display:inline-block;\" action=\"/Project1/inspect\" method=\"GET\"><input type=\"hidden\" name=\"file\" id=\"file\" value=\"" + logs.get(i).getPath() + "\"/> <input type = \"submit\" id=\"button\" value = \"inspect\"/> </form><div>";
         }
         }
         return string;

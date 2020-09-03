@@ -7,19 +7,25 @@ This application will be a log file manager for the batch's project 0s.  Some re
 - [x] JavaSE 8
 - [x] JavaEE 7:
     - [x] Servlet
-- [ ] PostgreSQL
+- [x] PostgreSQL
 - [x] Maven 3
 - [x] JUnit 5
-- [ ] Docker
-- [ ] Amazon Web Services
+- [x] Docker
+- [x] Amazon Web Services
 - [x] Git SCM
 
 ## Features
 - [x] Ability to pass user input to a servlet.
 - [x] Using user input, application will scan for log files and return all instances of the keyword, utilizing regular expressions.
-- [ ] Ability to view all log files within the path.
-- [ ] A docker feature will need to be added.
-- [ ] Ability to upload to an SQL database.
+- [x] Ability to view all log files within the path.
+- [x] Docker running on AWS EC2 instance containing PostgreSQL database.
+- [x] Ability to upload log files to an SQL database.
+
+## Future additions
+- [] RESTful design
+- [] Admin features such as converting the binary to log file
+- [] Additional Junit testing
+
 
 ## User Stories
 -The user will be able to search through all log files for keywords and shown which files contain that keyword and where.

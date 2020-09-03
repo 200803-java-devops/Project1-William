@@ -2,17 +2,6 @@
 
 <header>
     <div class="container">
-      
-  <c:choose>
-  <c:when test="${not empty message }">
-    <p class="alert ${messageClass}">${message }</p>
-  <%
-    session.setAttribute("message", null);
-    session.setAttribute("messageClass", null);
-  %>
-  </c:when>
-  </c:choose>
-
 
   <div id="search">
     <form action="/Project1/search" method="GET">
@@ -24,17 +13,13 @@
             <label for="key-word">Keyword:</label>
             <input type="text" name="keyword" id="key-word"> </br>
             <input type = "submit" value = "Submit" onClick="return empty()" />
-    
-            <p>Recommended keywords: exception, error</p>
         </fieldset>
     
     </form>
     </div>
     <p>Your results:</p>
     ${list}
-    <div>
-
-    </div>
+  
 
     
 <jsp:include page="footer.jsp"/>

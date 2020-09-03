@@ -3,6 +3,7 @@ package com.revature;
 import java.io.File;
 import java.util.Optional;
 
+import com.revature.web.InspectServlet;
 import com.revature.web.SearcherServlet;
 import com.revature.web.SubmitServlet;
 import com.revature.web.ViewerServlet;
@@ -24,6 +25,7 @@ public class App {
         server.addServlet(contextPath, "SearcherServlet", new SearcherServlet()).addMapping("/search");
         server.addServlet(contextPath, "ViewerServlet", new ViewerServlet()).addMapping("/view");
         server.addServlet(contextPath, "SubmitServlet", new SubmitServlet()).addMapping("/submit");
+        server.addServlet(contextPath, "InspectServlet", new InspectServlet()).addMapping("/inspect");
         server.start();
         server.getServer().await();
     }

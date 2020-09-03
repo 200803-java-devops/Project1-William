@@ -8,10 +8,10 @@
             <input type="text" name="filePath" id="file-path">
             <input type = "submit" value = "Submit" onClick="return empty2()" />
         </fieldset>
+    </form>
 </div>
 
 <div>
-    <p>Files found:</p>
     ${path}
     ${list}
 </div>
