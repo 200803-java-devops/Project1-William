@@ -1,7 +1,7 @@
 ## Log File Manager
 
 ## Proposal
-This application will be a log file manager for the batch's project 0s.  Some restrictions will have to be applied as most project 0s included very primitive logging.  Flexibility within this application for different projects and circumstances will be added over time.  The initial function of this application will be to search log files for keywords e.g. "exception."  Later, a SQL database connection will be added.
+This application is a log file manager for any software.  It is designed to view log files, search their contents, and submit them with comments to a database that a developer would have access to.  This application is meant to be used by low level developers or end users.  The database is hosted on an EC2 instance inside a Docker container. 
 
 ## Tech stack
 - [x] JavaSE 8
@@ -22,9 +22,11 @@ This application will be a log file manager for the batch's project 0s.  Some re
 - [x] Ability to upload log files to an SQL database.
 
 ## Future additions
+- [] Restrictions to prevent errors
 - [] RESTful design
 - [] Admin features such as converting the binary to log file
 - [] Additional Junit testing
+- [] Further fleshed out logging
 
 
 ## User Stories

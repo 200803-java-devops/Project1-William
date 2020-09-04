@@ -17,7 +17,6 @@
     
     </form>
     </div>
-    <p>Your results:</p>
     ${list}
   
 

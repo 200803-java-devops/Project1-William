@@ -1,10 +1,19 @@
 package com.revature.objects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+//This class contains code that will be used by the logger.  There may be a method for the logger to do this stuff already, but I can't find anythnig like it.  This was
+//just easier and quicker.
 public class logger {
-    final static Logger logger = LogManager.getLogger(logger.class.getName());
+
+    public static String timestamp () {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();  
+        String timestamp = dtf.format(now);
+        return timestamp;
+    }
+
 
 
 }

@@ -12,10 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.applications.DAO;
 
 public class SubmitServlet extends HttpServlet {
-    /**
+    /**This servlet is responsible for triggering the logic needed to submit a log with its info to the SQL db.  It reads a form that is built by the SearcherServlet
+     * for each file that it finds, hiding the inputs within the button.  Those inputs are then passed here as parameters and fed into the DAO class and its method.
+     * It attempts to show a statement about the submission being successful or failed, but it is currently not optimal.  I do believe request data is being saved,
+     * and this will need to be fixed later.
      *
      */
     private static final long serialVersionUID = 1L;
+    
 
     @Override
     protected void doPost (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,11 +27,9 @@ public class SubmitServlet extends HttpServlet {
         String comment = req.getParameter("comments");
         String name = req.getParameter("name");
 
-        //literally just getting the wrong path right now
         String path = req.getParameter("file");
 
 
-        //This turns the file into bytes that I think I can then upload.  Play around and test.
         byte[] rawfile = Files.readAllBytes(Paths.get(path));
 
         //they do something like this in pubhub to account for the "part" thing.  Honestly maybe 
@@ -75,6 +77,6 @@ public class SubmitServlet extends HttpServlet {
             req.setAttribute("list", "Log did not submit properly.  Please contact developer.");
             
         }
-        resp.sendRedirect(req.getContextPath() + "/search.jsp");
+        req.getRequestDispatcher("search.jsp").forward(req, resp);
     }
 }

@@ -14,8 +14,13 @@ import com.revature.objects.LogFile;
 
 import org.junit.Test;
 
+
+//More Junit tests are needed.  Time constraints prevented more from being developed.
+
 public class SearcherTest {
 
+
+    //Note this test will require a file to be manually set up and available.
     @Test
     public void SearchTest() {
         String path = "C:\\Users\\a\\Desktop\\Revature\\bootcamp projects\\Project1\\JunitTestFiles";
@@ -38,7 +43,7 @@ public class SearcherTest {
             // handle each file - read/write etc
             //https://stackoverflow.com/questions/14374707/what-does-the-colon-mean-in-java/14374760#:~:text=It%20means%20one%20thing%2C%20it%20is%20an%20enhanced%20for%20loop.&text=When%20you%20see%20the%20colon,each%20loop%2C%20even%20for%20arrays.
         
-            //now need to use filereader to read each one.  Will need some kind of variables set to catch keywords
+            //now need to use filereader to read each one.
             try (BufferedReader br = new BufferedReader(new FileReader(file));) {
             String line = null;
             int linecounter = 0;

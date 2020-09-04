@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-//The LogFile object will be created for each time a keyword is found in a log.  Name should be equal to the log file name.
-//The line array will contain the line numbers of found keywords.
+//The LogFile object is built if a collection of a file's relevant info is needed.   Often can get away without creating one, but this presents the option.
 
 public class LogFile {
     String name;

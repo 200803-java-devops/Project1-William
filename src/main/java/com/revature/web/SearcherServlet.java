@@ -13,7 +13,8 @@ import com.revature.applications.Manager;
 import com.revature.objects.LogFile;
 
 public class SearcherServlet extends HttpServlet {
-    /**
+    /** This servlet is responsible for triggering the logic required to perform the keyword search, return the results, and create a button for submitting each found file
+     * to the db.  It uses the file path and keyword provided by the user (which are forced via JS to not be blank).  
      *
      */
     private static final long serialVersionUID = 1L;
@@ -53,7 +54,7 @@ public class SearcherServlet extends HttpServlet {
         if (logs.isEmpty()) {
            string = "No instances of the keyword were found for that path.  Please double check your path provided.";
         } else {
-            //String button = 
+            string += "<p>Your results:</p>";
             for(int i = 0; i < logs.size(); i++) {
                 string += "<div>-File: " + "<span>" + logs.get(i).getName() + "</span> at lines: " + logs.get(i).getLine() + " " + "<form style=\"display:inline-block;\" action=\"/Project1/submit\" method=\"POST\"><input type=\"hidden\" name=\"comments\" id=\"comments\" value=\"\" /> <input type=\"hidden\" name=\"file\" id=\"file\" value=\"" + logs.get(i).getPath() + "\"/> <input type=\"hidden\" name=\"name\" id=\"name\" value=\"" + logs.get(i).getName() + "\"/> <input type = \"submit\" id=\"button\" value = \"Report to Developers\" onClick=\"return empty3()\" /> </form></div>";
         }

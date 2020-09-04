@@ -13,7 +13,10 @@ import com.revature.applications.Manager;
 import com.revature.objects.LogFile;
 
 public class ViewerServlet extends HttpServlet {
-    /**
+    /**This servlet is responsible for triggering the logic to print a list of log files to the page along with an inspect button.
+     * The inspect button contains a form with hidden inputs that are derived from the file that it is for.  It also prints the path
+     * that the user searched, just for visual reminder.  Note that this servlet and the view() method that it calls will return ANY
+     * files and folders that are found for the path given...This needs to be restricted so that it only displays certain files.
      *
      */
     private static final long serialVersionUID = 1L;

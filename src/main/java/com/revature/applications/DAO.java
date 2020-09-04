@@ -3,16 +3,25 @@ package com.revature.applications;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import com.revature.applications.DBconnect;
+
+import com.revature.objects.logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+//It is this class' job to query the database and return desired data.
 
 public class DAO {
     Connection connection = null;
     PreparedStatement stmt = null;
-    
+
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     
 
     public boolean addLog(byte[] file, String name, String comments) {
+        log.debug("The database is being queried at " + logger.timestamp());
         try {
             connection = DBconnect.getConnection();
             String sql = "INSERT INTO logs (file, filename, comment) VALUES (?,?,?);";

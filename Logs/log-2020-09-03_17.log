@@ -1,0 +1,10 @@
+17:46:24.514 DEBUG com.revature.applications.Manager - The view method was run at 2020/09/03 17:46:24
+17:46:30.394 DEBUG com.revature.applications.Manager - The viewFile method was run at 2020/09/03 17:46:30
+17:46:49.596 DEBUG com.revature.applications.Manager - The view method was run at 2020/09/03 17:46:49
+17:46:51.291 DEBUG com.revature.applications.Manager - The viewFile method was run at 2020/09/03 17:46:51
+17:47:13.341 DEBUG com.revature.applications.Manager - The search method was run at 2020/09/03 17:47:13
+17:47:37.001 DEBUG com.revature.applications.Manager - The view method was run at 2020/09/03 17:47:37
+17:47:40.294 DEBUG com.revature.applications.Manager - The viewFile method was run at 2020/09/03 17:47:40
+17:48:00.988 DEBUG com.revature.applications.Manager - The search method was run at 2020/09/03 17:48:00
+17:48:39.277 DEBUG com.revature.applications.DAO - The database is being queried at 2020/09/03 17:48:39
+17:59:45.981 DEBUG com.revature.applications.Manager - The search method was run at 2020/09/03 17:59:45
