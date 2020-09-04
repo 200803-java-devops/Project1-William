@@ -22,6 +22,7 @@ This application is a log file manager for any software.  It is designed to view
 - [x] Ability to upload log files to an SQL database.
 
 ## Future additions
+- [] The Javascript that is meant to provide the comments sent to the database is not working.  This needs to be fixed.
 - [] Restrictions to prevent errors
 - [] RESTful design
 - [] Admin features such as converting the binary to log file
