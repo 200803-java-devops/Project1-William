@@ -41,6 +41,6 @@ This application is a log file manager for any software.  It is designed to view
 ## Usage
 Simply launch the jar file in the root directory to start the local server application.  Navigate to http://localhost:8080/Project1 in your web browser to begin interacting with the UI.  Note that the EC2 must be running for all functions to work properly.  Alternatively, if you would like to recompile the application, run the following command:
 
-'''mvn clean compile assembly:single'''
+    mvn clean compile assembly:single
 
 Proceed to then move the newly created jar file from the target folder to the project root directory.  It can then be executed.
