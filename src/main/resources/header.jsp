@@ -47,17 +47,17 @@
 				return false;
 			};
         }
-        
+
         function empty3()
 		{
             if (window.confirm("Are you sure you want to submit this log file to the developers?"))
             {
                 var x = window.prompt("Please add comments about this log file submission.");
                 document.getElementById("comments").value = x;
-                
+                return true;
             } else {
                 return false;
-            }
+            };
         }
 
 
