@@ -25,9 +25,9 @@ This application is a log file manager for any software.  It is designed to view
 - [] The Javascript that is meant to provide the comments sent to the database is not working.  This needs to be fixed.
 - [] Restrictions to prevent errors
 - [] RESTful design
-- [] Admin features such as converting the binary to log file
 - [] Additional Junit testing
 - [] Further fleshed out logging
+- [] Place SQL database credentials into a configuration file
 
 
 ## User Stories
@@ -36,3 +36,7 @@ This application is a log file manager for any software.  It is designed to view
 -The user will be able to view log files in whole from the application.
 
 -The user will be able to upload log file information to a SQL database.
+
+
+## Usage
+Simply launch the jar file in the root directory to start the local server application.  Navigate to http://localhost:8080/Project1 in your web browser to begin interacting with the UI.  Note that the EC2 must be running for all functions to work properly.
