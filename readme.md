@@ -1,5 +1,7 @@
 ## Log File Manager
 
+See accompanying admin tool here: https://github.com/200803-java-devops/Project1-AdminTool-William.git
+
 ## Proposal
 This application is a log file manager for any software.  It is designed to view log files, search their contents, and submit them with comments to a database that a developer would have access to.  This application is meant to be used by low level developers or end users.  The database is hosted on an EC2 instance inside a Docker container. 
 
